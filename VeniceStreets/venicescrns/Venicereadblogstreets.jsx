@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, Animated, Share } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { burger, cards, info, read, shrd } from "../venicecnsts/venisestyles";
-import { burgerMenu, buttonDecorLeft, buttonDecorRight, decor } from "../venicecnsts/venicessts";
+import { burgerMenu, buttonDecorLeft, buttonDecorRight, decor, firework } from "../venicecnsts/venicessts";
 import Veniceburgerstreets from "../venicecmns/Veniceburgerstreets";
 
 const Venicereadblogstreets = ({ blog }) => {
@@ -105,6 +105,17 @@ const Venicereadblogstreets = ({ blog }) => {
 
                 <Text style={burger.title}>Blog</Text>
             </Animated.View>
+
+            <Image 
+                source={firework} 
+                style={{
+                    width: 160,
+                    height: 160,
+                    position: 'absolute',
+                    bottom: '40%',
+                    alignSelf: 'center'
+                }}
+            />
 
             <Animated.View style={[
                 read.card,

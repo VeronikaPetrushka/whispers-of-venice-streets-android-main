@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { 
     burgerMenu,
     decor, 
+    firework, 
     share, 
     veniceSave, 
     veniceSaved, 
@@ -139,6 +140,17 @@ const Venicereadplacestreets = ({ place }) => {
 
                 <Text style={burger.title}>Recommended places</Text>
             </View>
+
+            <Image 
+                source={firework} 
+                style={{
+                    width: 160,
+                    height: 160,
+                    position: 'absolute',
+                    bottom: '40%',
+                    alignSelf: 'center'
+                }}
+            />
 
             {loading ? (
                 <View style={{ width: '100%', flexGrow: 1 }}>

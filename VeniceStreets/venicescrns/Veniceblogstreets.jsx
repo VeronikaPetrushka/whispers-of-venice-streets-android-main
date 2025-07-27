@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity, ScrollView, Animated, Share } from "react-native";
 import { burger, cards, info, read, shrd } from "../venicecnsts/venisestyles";
-import { burgerMenu, buttonDecorLeft, buttonDecorRight, share } from "../venicecnsts/venicessts";
+import { burgerMenu, buttonDecorLeft, buttonDecorRight, firework, share } from "../venicecnsts/venicessts";
 import Veniceburgerstreets from "../venicecmns/Veniceburgerstreets";
 import veniceblog from "../venicecnsts/veniceblog";
 import { useState, useRef, useEffect } from "react";
@@ -92,6 +92,17 @@ const Veniceblogstreets = () => {
 
                 <Text style={burger.title}>Blog</Text>
             </Animated.View>
+
+            <Image 
+                source={firework} 
+                style={{
+                    width: 160,
+                    height: 160,
+                    position: 'absolute',
+                    bottom: '40%',
+                    alignSelf: 'center'
+                }}
+            />
 
             <ScrollView 
                 style={{ width: '100%' }}

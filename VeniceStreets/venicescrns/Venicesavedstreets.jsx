@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity, ScrollView, Animated } from "react-native";
 import { burger, cards, info, map, read, shrd } from "../venicecnsts/venisestyles";
-import { burgerMenu, buttonDecorLeft, buttonDecorRight, decor } from "../venicecnsts/venicessts";
+import { burgerMenu, buttonDecorLeft, buttonDecorRight, decor, firework } from "../venicecnsts/venicessts";
 import Veniceburgerstreets from "../venicecmns/Veniceburgerstreets";
 import { useState, useRef, useEffect } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -119,6 +119,17 @@ const Venicesavedstreets = () => {
 
                 <Text style={burger.title}>Saved places</Text>
             </View>
+
+            <Image 
+                source={firework} 
+                style={{
+                    width: 160,
+                    height: 160,
+                    position: 'absolute',
+                    bottom: '40%',
+                    alignSelf: 'center'
+                }}
+            />
 
             <ScrollView 
                 style={{ width: '100%', paddingHorizontal: 16, paddingTop: 50 }}
