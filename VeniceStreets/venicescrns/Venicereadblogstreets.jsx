@@ -111,7 +111,10 @@ const Venicereadblogstreets = ({ blog }) => {
                 {
                     transform: [{ scale: cardScaleAnim }],
                     opacity: fadeAnim,
-                    paddingTop: 60
+                    paddingTop: 60,
+                    width: '90%',
+                    alignSelf: 'center',
+                    marginTop: 50
                 }
             ]}>
                 <Image source={decor} style={info.decor} />

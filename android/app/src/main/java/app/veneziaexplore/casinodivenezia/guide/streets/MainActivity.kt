@@ -1,4 +1,4 @@
-package com.whispersofvenicestreets
+package app.veneziaexplore.casinodivenezia.guide.streets
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
