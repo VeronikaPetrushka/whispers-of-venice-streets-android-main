@@ -2,9 +2,9 @@ import { useNavigation } from "@react-navigation/native";
 import { burger, darkMap, info, map, read, shrd } from "../venicecnsts/venisestyles";
 import { burgerMenu, buttonDecorLeft, buttonDecorRight, close, decor } from "../venicecnsts/venicessts";
 import Veniceburgerstreets from "../venicecmns/Veniceburgerstreets";
-import MapboxGL from '@rnmapbox/maps';
+import MapView, { Marker } from 'react-native-maps';
 import venicerecommend from "../venicecnsts/venicerecommend";
-import { View, Image, Text, TouchableOpacity, Animated, Platform } from "react-native";
+import { View, Image, Text, TouchableOpacity, Animated } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useState, useEffect, useRef } from "react";
 
@@ -188,38 +188,33 @@ const Venicemapstreets = () => {
                 <Text style={burger.title}>Interactive map</Text>
             </Animated.View>
 
-            <MapboxGL.MapView style={{ flex: 1 }} styleURL={MapboxGL.StyleURL.Dark}>
-                <MapboxGL.Camera
-                    zoomLevel={13}
-                    centerCoordinate={[12.3358, 45.4375]}
-                    animationMode={'flyTo'}
-                    animationDuration={2000}
-                />
-
+            <MapView
+                ref={mapRef}
+                style={{ flex: 1 }}
+                initialRegion={{
+                    latitude: 45.4375,
+                    longitude: 12.3358,
+                    latitudeDelta: 0.02,
+                    longitudeDelta: 0.009,
+                }}
+                provider="google"
+                customMapStyle={darkMap}
+            >
                 {venicerecommend.map((place, index) => (
                     place.veniceCoordinates && (
-                        <MapboxGL.PointAnnotation
+                        <Marker
                             key={`marker-${index}`}
-                            id={`marker-${index}`}
-                            coordinate={[place.veniceCoordinates[1], place.veniceCoordinates[0]]}
-                            onSelected={() => {
-                                setSelectedMapSight(place);
-                                setReadplace(true);
+                            coordinate={{
+                                latitude: place.veniceCoordinates[0],
+                                longitude: place.veniceCoordinates[1]
                             }}
+                            onPress={() => handleMarkerPress(place, index)}
                         >
-                            <View style={{
-                                width: 20,
-                                height: 20,
-                                borderRadius: 100,
-                                borderWidth: 3,
-                                borderColor: '#FCCB00',
-                                alignItems: 'center', 
-                                justifyContent: 'center'
-                            }} />
-                        </MapboxGL.PointAnnotation>
+                            <View style={{width: 20, height: 20, backgroundColor: '#FCCB00', borderRadius: 100, borderWidth: 2, borderColor: '#000'}}/>
+                        </Marker>
                     )
                 ))}
-            </MapboxGL.MapView>
+            </MapView>
 
             {selectedMapSight && readPlace && (
                 <VenicePlace place={selectedMapSight} setReadplace={setReadplace} />

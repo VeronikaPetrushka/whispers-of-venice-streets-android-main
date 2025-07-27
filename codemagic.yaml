@@ -10,7 +10,7 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.whispersOf.venice.streets.2025
       vars:
-        APP_STORE_APPLE_ID: 6749139427
+        APP_STORE_APPLE_ID: 6749207498
         BUNDLE_ID: 'com.whispersOf.venice.streets.2025'
         XCODE_WORKSPACE: 'WhispersOfVeniceStreets.xcworkspace'
         XCODE_SCHEME: 'WhispersOfVeniceStreets'
